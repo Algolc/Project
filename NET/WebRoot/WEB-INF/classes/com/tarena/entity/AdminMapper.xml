@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.AdminDao">
+	<select id="findByCode" 
+		parameterType="string"
+		resultType="com.tarena.entity.Admin">
+		select * from admin_info where admin_code=#{adminCode}
+	</select>
+	
+	<select id="findModulesByAdmin" 
+		parameterType="int"
+		resultType="com.tarena.entity.Module">
+		select * from module_info where module_id in (
+			select rm.module_id
+			from admin_role ar
+			inner join role_info ri on ri.role_id=ar.role_id
+			inner join role_module rm on rm.role_id=ri.role_id
+			where ar.admin_id=#{adminId}
+		) order by module_id
+	</select>
+</mapper>

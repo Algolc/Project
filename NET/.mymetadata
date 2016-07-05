@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="tr_netcto_02_cost"
+  id="myeclipse.1452006494896"
+  context-root="/tr_netcto_02_cost"
+  j2ee-spec="5.0"
+  archive="tr_netcto_02_cost.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
